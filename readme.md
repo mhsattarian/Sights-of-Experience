@@ -2,6 +2,31 @@
 
 Instructions I found helpful to install various packages and softwares on my Manjaro linux.
 
+## Web Development
+
+### json
+
+#### Compress/minify a json using `jq`
+
+```bash
+jsonminify() {
+  file="$1";
+  name=$(echo $1 | cut -d '.' -f 1);
+  ext=$(echo $1 | cut -d '.' -f 2);
+  jq . -c $1 > "$name.min.$ext"
+}
+
+```
+
+#### validate a json using `jq`
+
+use `jq` with `type` filter instead of `.`
+
+```bash
+echo '{"a": 1' | jq type
+```
+
+
 ## Linux Issues
 
 ### tty not found!
